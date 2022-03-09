@@ -1,0 +1,21 @@
+
+Please take a note of the details below these are needed to access your account.
+Your account is now active.
+
+Control panel username: 	b18_31237444
+Control panel password: 	**********
+Control panel URL: 	cpanel.
+MySQL username 	b18_31237444
+MySQL password: 	**********
+MySQL hostname: 	.
+FTP username: 	b18_31237444
+FTP password: 	**********
+FTP host name: 	ftp.
+Your Website URL: 	http://
+  	 
+
+Thank you for choosing us to host your websites!
+
+hosting services 2022.
+
+ https://github.com/NEWM0ON?tab=repositories

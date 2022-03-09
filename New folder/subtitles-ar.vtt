@@ -1,0 +1,657 @@
+WEBVTT
+
+1
+00:00:08.300 --> 00:00:13.425
+Today, let's talk about the request-response cycle or
+
+2
+00:00:13.425 --> 00:00:18.675
+basically what happens when you type something into the address bar of your browser.
+
+3
+00:00:18.675 --> 00:00:22.830
+One of the things I think is really funny and I'm guilty of it as well,
+
+4
+00:00:22.830 --> 00:00:26.580
+is that we all do things and we have no idea how they work.
+
+5
+00:00:26.580 --> 00:00:31.830
+So, if I were to ask you when you type in an address, what happens?
+
+6
+00:00:31.830 --> 00:00:37.070
+So, this lecture is actually one of the most technical of this entire class.
+
+7
+00:00:37.070 --> 00:00:40.129
+I don't want to feel like you need to memorize this or write it down,
+
+8
+00:00:40.129 --> 00:00:42.770
+but I do think it will help you understand a little bit
+
+9
+00:00:42.770 --> 00:00:46.690
+more what's going on as you learn HTML5.
+
+10
+00:00:46.690 --> 00:00:51.935
+So, one of the things you might want to understand is the client-server relationship.
+
+11
+00:00:51.935 --> 00:00:55.610
+Servers are basically machines that hold all the resources.
+
+12
+00:00:55.610 --> 00:00:59.375
+Our hope is that they're always connected to the network.
+
+13
+00:00:59.375 --> 00:01:01.830
+Clients are what we're using,
+
+14
+00:01:01.830 --> 00:01:04.310
+where the machines that you use for personal use;
+
+15
+00:01:04.310 --> 00:01:07.445
+like laptops, phones, et cetera.
+
+16
+00:01:07.445 --> 00:01:09.695
+Let me show you in this picture.
+
+17
+00:01:09.695 --> 00:01:15.060
+It's really common to use networks such as something called a LAN or a WAN.
+
+18
+00:01:15.060 --> 00:01:17.890
+A LAN is a local area network,
+
+19
+00:01:17.890 --> 00:01:22.070
+and so what I have right here is this idea that we can have
+
+20
+00:01:22.070 --> 00:01:27.410
+three different computers and they're all sharing one server.
+
+21
+00:01:27.410 --> 00:01:29.590
+لماذا نريد أن نفعل ذلك؟
+
+22
+00:01:29.590 --> 00:01:30.920
+Well, a lot of times,
+
+23
+00:01:30.920 --> 00:01:34.565
+you only have one printer or one of the different resources.
+
+24
+00:01:34.565 --> 00:01:39.215
+This way, all three machines can work together and share that one resource.
+
+25
+00:01:39.215 --> 00:01:42.355
+So, the LAN is the local area network.
+
+26
+00:01:42.355 --> 00:01:47.095
+Sometimes, you want to have something larger or a wide area network.
+
+27
+00:01:47.095 --> 00:01:52.895
+So, in movies, where the good guy is breaking into the building to steal the software,
+
+28
+00:01:52.895 --> 00:01:56.240
+what's typically happened is they have this server that
+
+29
+00:01:56.240 --> 00:02:00.280
+everyone who works in the building can access but no one outside the building,
+
+30
+00:02:00.280 --> 00:02:03.610
+or you can even have it across different buildings but you don't
+
+31
+00:02:03.610 --> 00:02:06.700
+want anyone from the outside to really be able to get your information.
+
+32
+00:02:06.700 --> 00:02:10.285
+So, local area network is like your office building.
+
+33
+00:02:10.285 --> 00:02:13.390
+A wide area network might be a university,
+
+34
+00:02:13.390 --> 00:02:17.005
+where you want to be able to share servers across multiple buildings.
+
+35
+00:02:17.005 --> 00:02:20.690
+The largest wide area network is, of course, the Internet.
+
+36
+00:02:20.690 --> 00:02:23.365
+So, now we get back to that question of
+
+37
+00:02:23.365 --> 00:02:26.665
+what happens when you type something into the URL?
+
+38
+00:02:26.665 --> 00:02:30.220
+What you're doing is that you the client are requesting
+
+39
+00:02:30.220 --> 00:02:35.315
+a web page and the server needs to respond with the appropriate files.
+
+40
+00:02:35.315 --> 00:02:38.090
+So, when you type something in,
+
+41
+00:02:38.090 --> 00:02:40.155
+this is called the URL.
+
+42
+00:02:40.155 --> 00:02:42.645
+Every URL has three parts.
+
+43
+00:02:42.645 --> 00:02:46.275
+The protocol, how you want to connect, the domain,
+
+44
+00:02:46.275 --> 00:02:47.744
+which is the server,
+
+45
+00:02:47.744 --> 00:02:50.725
+and then optionally, you can include the document.
+
+46
+00:02:50.725 --> 00:02:53.884
+So, even though you're typing in one URL,
+
+47
+00:02:53.884 --> 00:02:56.180
+one of the things to realize is that usually,
+
+48
+00:02:56.180 --> 00:03:00.065
+you're actually requesting lots and lots of files all at once.
+
+49
+00:03:00.065 --> 00:03:03.235
+So, the protocols that most people have seen;
+
+50
+00:03:03.235 --> 00:03:05.235
+the first one is HTTP,
+
+51
+00:03:05.235 --> 00:03:07.395
+the Hypertext Transfer Protocol.
+
+52
+00:03:07.395 --> 00:03:09.855
+The second one, HTTPS,
+
+53
+00:03:09.855 --> 00:03:11.280
+is the same idea,
+
+54
+00:03:11.280 --> 00:03:13.850
+only now we're having a more secure protocol.
+
+55
+00:03:13.850 --> 00:03:18.860
+So, if you're ever connecting to a bank or any place where you're putting in passwords,
+
+56
+00:03:18.860 --> 00:03:24.350
+make sure that the first thing you see in that URL is HTTPS.
+
+57
+00:03:24.350 --> 00:03:26.925
+If you don't, don't connect.
+
+58
+00:03:26.925 --> 00:03:30.170
+The third one is called the File Transfer Protocol.
+
+59
+00:03:30.170 --> 00:03:31.595
+إنه مختلف قليلاً
+
+60
+00:03:31.595 --> 00:03:33.410
+When you see HTTP,
+
+61
+00:03:33.410 --> 00:03:37.730
+it's expecting that you're going to give back and forth HTML5 code;
+
+62
+00:03:37.730 --> 00:03:40.815
+with FTP, it could be any type of file.
+
+63
+00:03:40.815 --> 00:03:42.869
+So, we have the protocol,
+
+64
+00:03:42.869 --> 00:03:46.220
+now let's talk about what the domain names represent.
+
+65
+00:03:46.220 --> 00:03:50.870
+Usually, the domain names are something recognizable, such as umich.edu,
+
+66
+00:03:50.870 --> 00:03:52.875
+would be for University of Michigan.
+
+67
+00:03:52.875 --> 00:03:56.280
+Google.com, wikipedia.org.
+
+68
+00:03:56.280 --> 00:04:00.575
+So, each of these sites has a different top-level domain.
+
+69
+00:04:00.575 --> 00:04:01.940
+How did you get them?
+
+70
+00:04:01.940 --> 00:04:07.445
+How do some people get to be.edu and some.com, some.biz, et cetera?
+
+71
+00:04:07.445 --> 00:04:10.900
+Well, they're actually determined by ICANN.
+
+72
+00:04:10.900 --> 00:04:13.985
+Their job is to go in and decide which types of
+
+73
+00:04:13.985 --> 00:04:17.060
+organizations qualify for different domains.
+
+74
+00:04:17.060 --> 00:04:18.950
+I've included a link here if you want,
+
+75
+00:04:18.950 --> 00:04:21.785
+you can go and see what the different types are.
+
+76
+00:04:21.785 --> 00:04:24.230
+But the important thing to know is that
+
+77
+00:04:24.230 --> 00:04:28.765
+your domain name is actually mapped to an address.
+
+78
+00:04:28.765 --> 00:04:32.480
+In the old days, like when my Dad was on the Internet,
+
+79
+00:04:32.480 --> 00:04:34.060
+if he want to connect to some place,
+
+80
+00:04:34.060 --> 00:04:35.635
+he would actually type in numbers;
+
+81
+00:04:35.635 --> 00:04:39.565
+185.261 et cetera, et cetera.
+
+82
+00:04:39.565 --> 00:04:42.815
+Well, there's been a new version of IP addresses,
+
+83
+00:04:42.815 --> 00:04:45.860
+because every single client needs their own address.
+
+84
+00:04:45.860 --> 00:04:49.505
+If you think of how many people have laptops and smartphones,
+
+85
+00:04:49.505 --> 00:04:51.580
+we need a lot of different options.
+
+86
+00:04:51.580 --> 00:04:53.850
+So, with these IP addresses,
+
+87
+00:04:53.850 --> 00:04:58.195
+you basically have sets of numbers,
+
+88
+00:04:58.195 --> 00:05:01.400
+you have these different sets right here,
+
+89
+00:05:01.400 --> 00:05:05.660
+where each X can represent one of 16 different values.
+
+90
+00:05:05.660 --> 00:05:07.820
+So, you can see we have a lot of options,
+
+91
+00:05:07.820 --> 00:05:10.580
+over 300 trillion, in fact.
+
+92
+00:05:10.580 --> 00:05:12.810
+As I said, luckily for you,
+
+93
+00:05:12.810 --> 00:05:18.435
+the domain name server lets you type in something really simple like Umich or Google,
+
+94
+00:05:18.435 --> 00:05:22.435
+and it's the one that turns it into that really long number.
+
+95
+00:05:22.435 --> 00:05:26.320
+The last part of your URL is the document.
+
+96
+00:05:26.320 --> 00:05:31.760
+So, sometimes you want to specify a very specific document that you want to get.
+
+97
+00:05:31.760 --> 00:05:34.215
+So, for instance, the contact page,
+
+98
+00:05:34.215 --> 00:05:36.035
+or in this case,
+
+99
+00:05:36.035 --> 00:05:39.760
+another one I have the file that's inside a folder.
+
+100
+00:05:39.760 --> 00:05:42.430
+But sometimes you don't put a document at all.
+
+101
+00:05:42.430 --> 00:05:44.835
+In fact, most of the time, you don't.
+
+102
+00:05:44.835 --> 00:05:49.630
+If you type in wikipedia.org or Facebook.com,
+
+103
+00:05:49.630 --> 00:05:52.360
+there's no filename. But that's okay.
+
+104
+00:05:52.360 --> 00:06:01.465
+Every server has a default document that it's going to return.
+
+105
+00:06:01.465 --> 00:06:05.180
+Usually, it's called index.HTML.
+
+106
+00:06:05.540 --> 00:06:07.875
+All right. So, we figured it out.
+
+107
+00:06:07.875 --> 00:06:10.880
+We know what it means when we're typing something in.
+
+108
+00:06:10.880 --> 00:06:12.650
+We understand the request.
+
+109
+00:06:12.650 --> 00:06:16.070
+What happens though once we type that in,
+
+110
+00:06:16.070 --> 00:06:19.805
+is we are actually going to get back a lot of information.
+
+111
+00:06:19.805 --> 00:06:22.340
+Headers, cookies, form data,
+
+112
+00:06:22.340 --> 00:06:24.815
+all the stuff that you don't see.
+
+113
+00:06:24.815 --> 00:06:30.805
+So, the important thing to know is that the server returns files, not web pages.
+
+114
+00:06:30.805 --> 00:06:33.000
+For a lot of us, we are very visual.
+
+115
+00:06:33.000 --> 00:06:34.500
+So, when we type in a URL,
+
+116
+00:06:34.500 --> 00:06:35.715
+we're looking and we're like,
+
+117
+00:06:35.715 --> 00:06:37.390
+"Oh, here's my page."
+
+118
+00:06:37.390 --> 00:06:39.890
+But sometimes the browser might be returning
+
+119
+00:06:39.890 --> 00:06:43.635
+something for different types of screen readers,
+
+120
+00:06:43.635 --> 00:06:46.665
+assistive technology, so it's not returning a web page,
+
+121
+00:06:46.665 --> 00:06:49.205
+it's returning lots and lots of files.
+
+122
+00:06:49.205 --> 00:06:54.875
+Hopefully, I will admit that sometimes the server can't fulfill the request.
+
+123
+00:06:54.875 --> 00:06:57.500
+If it can't, it'll send back an error code.
+
+124
+00:06:57.500 --> 00:07:00.590
+I think a lot of you are familiar with 404,
+
+125
+00:07:00.590 --> 00:07:02.405
+where it says, "File not found."
+
+126
+00:07:02.405 --> 00:07:05.105
+That usually means you typed something in wrong.
+
+127
+00:07:05.105 --> 00:07:07.220
+If you get a 500 error,
+
+128
+00:07:07.220 --> 00:07:09.170
+that actually means that the servers down.
+
+129
+00:07:09.170 --> 00:07:10.810
+So, you may as well go have a snack,
+
+130
+00:07:10.810 --> 00:07:14.585
+do something fun, come back later and type it in again.
+
+131
+00:07:14.585 --> 00:07:21.110
+So, I want to do a live demo with you of what happens when we type something in.
+
+132
+00:07:21.110 --> 00:07:22.850
+So, I've written it down for you.
+
+133
+00:07:22.850 --> 00:07:24.825
+It looks up the domain,
+
+134
+00:07:24.825 --> 00:07:27.520
+the DNS returns an IP address,
+
+135
+00:07:27.520 --> 00:07:32.440
+and then a whole bunch of files start to be returned. Let's take a look.
+
+136
+00:07:32.440 --> 00:07:35.120
+What I've done here is I've gone to the school of
+
+137
+00:07:35.120 --> 00:07:37.595
+information site at the University of Michigan.
+
+138
+00:07:37.595 --> 00:07:41.720
+I simply typed in si.umich.edu.
+
+139
+00:07:41.720 --> 00:07:44.945
+I didn't type in the protocol because it usually just defaults.
+
+140
+00:07:44.945 --> 00:07:48.285
+So, what you see here visually is a page.
+
+141
+00:07:48.285 --> 00:07:51.540
+Student looking out, looking very inspired, et cetera.
+
+142
+00:07:51.540 --> 00:07:54.120
+But now, I'm going to do a little trick here,
+
+143
+00:07:54.120 --> 00:07:56.650
+where I right-click on the screen,
+
+144
+00:07:58.750 --> 00:08:03.329
+and I'm going to choose the option that says, "Inspect."
+
+145
+00:08:04.070 --> 00:08:07.255
+A window's going to pop up to the side here.
+
+146
+00:08:07.255 --> 00:08:08.950
+I'm going to say, "You know what?
+
+147
+00:08:08.950 --> 00:08:11.410
+I would like to see all the information that's
+
+148
+00:08:11.410 --> 00:08:14.200
+being returned when I actually request this page."
+
+149
+00:08:14.200 --> 00:08:16.985
+I'm requesting one page, I'm going to hit "Refresh."
+
+150
+00:08:16.985 --> 00:08:18.730
+If you look off to the side,
+
+151
+00:08:18.730 --> 00:08:20.890
+don't worry that you can't see the details.
+
+152
+00:08:20.890 --> 00:08:27.880
+But you should see that the single page is actually made up of lots and lots of files,
+
+153
+00:08:27.880 --> 00:08:30.920
+and each one of these files was a separate request.
+
+154
+00:08:30.920 --> 00:08:32.745
+Okay. So, let's review.
+
+155
+00:08:32.745 --> 00:08:34.805
+This was a long video,
+
+156
+00:08:34.805 --> 00:08:37.690
+where really all I want you to come away from it with is
+
+157
+00:08:37.690 --> 00:08:40.945
+the knowledge that every URL has those three parts;
+
+158
+00:08:40.945 --> 00:08:44.225
+the protocol, the domain, and the document.
+
+159
+00:08:44.225 --> 00:08:49.340
+Realize that what you're creating is bigger than just one file at a time.
+
+160
+00:08:49.340 --> 00:08:52.850
+Every request-response cycle is usually lots and
+
+161
+00:08:52.850 --> 00:08:56.610
+lots of rounds of communication between the client and the server.
+
+162
+00:08:56.610 --> 00:08:58.210
+So, we're going to start off small.
+
+163
+00:08:58.210 --> 00:09:00.260
+We're going to do one file at a time,
+
+164
+00:09:00.260 --> 00:09:05.690
+but you can always look ahead to building bigger and bigger web applications.
